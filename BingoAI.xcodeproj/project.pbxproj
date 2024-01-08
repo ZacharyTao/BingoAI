@@ -30,6 +30,7 @@
 		EFE765AA2B4278BC00F41CC5 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		EFE765AC2B4278CC00F41CC5 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		EFE765AE2B4279F200F41CC5 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		EFE765B32B4C9B6600F41CC5 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +48,7 @@
 		EFE765832B419EEA00F41CC5 = {
 			isa = PBXGroup;
 			children = (
+				EFE765B32B4C9B6600F41CC5 /* Config.xcconfig */,
 				EFE7658E2B419EEA00F41CC5 /* BingoAI */,
 				EFE7658D2B419EEA00F41CC5 /* Products */,
 			);
@@ -183,6 +185,7 @@
 /* Begin XCBuildConfiguration section */
 		EFE765982B419EEB00F41CC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFE765B32B4C9B6600F41CC5 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -246,6 +249,7 @@
 		};
 		EFE765992B419EEB00F41CC5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFE765B32B4C9B6600F41CC5 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -302,6 +306,7 @@
 		};
 		EFE7659B2B419EEB00F41CC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFE765B32B4C9B6600F41CC5 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -334,6 +339,7 @@
 		};
 		EFE7659C2B419EEB00F41CC5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFE765B32B4C9B6600F41CC5 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
