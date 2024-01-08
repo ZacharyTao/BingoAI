@@ -65,11 +65,11 @@
 			children = (
 				EFE765A92B4278A500F41CC5 /* BingoGame */,
 				EFE7658F2B419EEA00F41CC5 /* BingoAIApp.swift */,
+				EFE765A52B426E9D00F41CC5 /* BingoViewModel.swift */,
+				EFE765A72B426FA900F41CC5 /* BingoModel.swift */,
 				EFE765912B419EEA00F41CC5 /* ContentView.swift */,
 				EFE765932B419EEB00F41CC5 /* Assets.xcassets */,
 				EFE765952B419EEB00F41CC5 /* Preview Content */,
-				EFE765A52B426E9D00F41CC5 /* BingoViewModel.swift */,
-				EFE765A72B426FA900F41CC5 /* BingoModel.swift */,
 			);
 			path = BingoAI;
 			sourceTree = "<group>";
