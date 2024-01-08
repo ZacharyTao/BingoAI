@@ -1,6 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,swift
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,swift
 
+.env
 ### macOS ###
 # General
 .DS_Store
