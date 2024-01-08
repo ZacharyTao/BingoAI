@@ -27,7 +27,7 @@ Open the project in Xcode and run it on your desired device or simulator.
 
 ## Usage
 
-**Note⚠️:** ⚠To interact with the app, user must provide its own OpenAI API key, more infomation can be found here [OpenAI API](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key)
+**Note⚠️:** To interact with the app, user must provide its own OpenAI API key, more infomation can be found here [OpenAI API](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key)
 
 To start using BingoAI:
 
