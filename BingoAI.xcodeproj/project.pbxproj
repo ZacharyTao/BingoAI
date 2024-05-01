@@ -14,7 +14,7 @@
 		EFE765942B419EEB00F41CC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE765932B419EEB00F41CC5 /* Assets.xcassets */; };
 		EFE765972B419EEB00F41CC5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE765962B419EEB00F41CC5 /* Preview Assets.xcassets */; };
 		EFE765A22B41A8DD00F41CC5 /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = EFE765A12B41A8DD00F41CC5 /* OpenAIKit */; };
-		EFE765A62B426E9D00F41CC5 /* BingoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE765A52B426E9D00F41CC5 /* BingoViewModel.swift */; };
+		EFE765A62B426E9D00F41CC5 /* GPTViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE765A52B426E9D00F41CC5 /* GPTViewModel.swift */; };
 		EFE765AB2B4278BC00F41CC5 /* BingoSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE765AA2B4278BC00F41CC5 /* BingoSlot.swift */; };
 		EFE765AD2B4278CC00F41CC5 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE765AC2B4278CC00F41CC5 /* GridViewModel.swift */; };
 		EFE765AF2B4279F200F41CC5 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE765AE2B4279F200F41CC5 /* GridView.swift */; };
@@ -27,11 +27,10 @@
 		EFE765912B419EEA00F41CC5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EFE765932B419EEB00F41CC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFE765962B419EEB00F41CC5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		EFE765A52B426E9D00F41CC5 /* BingoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoViewModel.swift; sourceTree = "<group>"; };
+		EFE765A52B426E9D00F41CC5 /* GPTViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTViewModel.swift; sourceTree = "<group>"; };
 		EFE765AA2B4278BC00F41CC5 /* BingoSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoSlot.swift; sourceTree = "<group>"; };
 		EFE765AC2B4278CC00F41CC5 /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
 		EFE765AE2B4279F200F41CC5 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
-		EFE765B32B4C9B6600F41CC5 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		EFE765B42B4C9F9800F41CC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,7 +50,6 @@
 		EFE765832B419EEA00F41CC5 = {
 			isa = PBXGroup;
 			children = (
-				EFE765B32B4C9B6600F41CC5 /* Config.xcconfig */,
 				EFE7658E2B419EEA00F41CC5 /* BingoAI */,
 				EFE7658D2B419EEA00F41CC5 /* Products */,
 			);
@@ -69,9 +67,9 @@
 			isa = PBXGroup;
 			children = (
 				EFE765B42B4C9F9800F41CC5 /* Info.plist */,
-				EFE765A92B4278A500F41CC5 /* BingoGame */,
+				EFE765A92B4278A500F41CC5 /* GameView */,
 				EFE7658F2B419EEA00F41CC5 /* BingoAIApp.swift */,
-				EFE765A52B426E9D00F41CC5 /* BingoViewModel.swift */,
+				EFE765A52B426E9D00F41CC5 /* GPTViewModel.swift */,
 				EFE765912B419EEA00F41CC5 /* ContentView.swift */,
 				EFE765932B419EEB00F41CC5 /* Assets.xcassets */,
 				EFE765952B419EEB00F41CC5 /* Preview Content */,
@@ -88,14 +86,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		EFE765A92B4278A500F41CC5 /* BingoGame */ = {
+		EFE765A92B4278A500F41CC5 /* GameView */ = {
 			isa = PBXGroup;
 			children = (
 				EFE765AA2B4278BC00F41CC5 /* BingoSlot.swift */,
 				EFE765AC2B4278CC00F41CC5 /* GridViewModel.swift */,
 				EFE765AE2B4279F200F41CC5 /* GridView.swift */,
 			);
-			path = BingoGame;
+			path = GameView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,7 +180,7 @@
 				EFE765922B419EEA00F41CC5 /* ContentView.swift in Sources */,
 				EFE765AF2B4279F200F41CC5 /* GridView.swift in Sources */,
 				EFE765902B419EEA00F41CC5 /* BingoAIApp.swift in Sources */,
-				EFE765A62B426E9D00F41CC5 /* BingoViewModel.swift in Sources */,
+				EFE765A62B426E9D00F41CC5 /* GPTViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +189,6 @@
 /* Begin XCBuildConfiguration section */
 		EFE765982B419EEB00F41CC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFE765B32B4C9B6600F41CC5 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -255,7 +252,6 @@
 		};
 		EFE765992B419EEB00F41CC5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFE765B32B4C9B6600F41CC5 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -312,7 +308,6 @@
 		};
 		EFE7659B2B419EEB00F41CC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFE765B32B4C9B6600F41CC5 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -346,7 +341,6 @@
 		};
 		EFE7659C2B419EEB00F41CC5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFE765B32B4C9B6600F41CC5 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

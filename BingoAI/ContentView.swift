@@ -17,7 +17,7 @@ class UserSettings: ObservableObject{
 
 struct ContentView: View {
     @StateObject private var gptViewModel = BingoViewModel()
-    @StateObject private var gridViewModel = GridViewModel(descriptions: Array(repeating: "", count: 25))
+    @StateObject private var gridViewModel = GridViewModel(descriptions: Array(repeating: " ", count: 25))
     @StateObject private var userSettings = UserSettings.shared
     @State private var prompt: String = ""
     @State var showSettingSheet = false
@@ -42,6 +42,7 @@ struct ContentView: View {
                     }.ignoresSafeArea()
                     
                     GeometryReader{reader in
+                        
                         VStack {
                             if gptViewModel.isFetching {
                                 bingoProgressView
@@ -54,7 +55,7 @@ struct ContentView: View {
                                     Button{
                                         proxy.burst()
                                         proxy.move(to: CGPoint(x: reader.size.width / 2, y: 180))
-
+                                        
                                     }label:{
                                         RoundedRectangle(cornerRadius: 20)
                                             .foregroundStyle(gridViewModel.isBingoed ? .green : .clear)
@@ -66,7 +67,7 @@ struct ContentView: View {
                                                     .foregroundColor(gridViewModel.isBingoed ? .white : .clear)
                                             }
                                             .padding()
-                                    }
+                                    }.disabled(!gridViewModel.isBingoed)
                                     
                                 }
                                 Spacer()
@@ -76,9 +77,10 @@ struct ContentView: View {
                             switch userSettings.gridType {
                             case .four:
                                 gridViewModel.size = 4
+                                gridViewModel.checkForBingo()
                             case .five:
                                 gridViewModel.size = 5
-                                
+                                gridViewModel.checkForBingo()
                             }
                         }
                         .sheet(isPresented: $showSettingSheet){
@@ -90,6 +92,7 @@ struct ContentView: View {
                                 proxy.move(to: CGPoint(x: reader.size.width / 2, y: 180))
                             }
                         }
+                    }
                     }
                     .ignoresSafeArea(.keyboard, edges: .bottom)
                     .onChange(of: gptViewModel.isFetching){
@@ -116,13 +119,16 @@ struct ContentView: View {
             }
             
         }
-    }
+    
     
 
     @ViewBuilder
     var buttonView: some View{
         HStack(spacing: 20){
-            Button("Shuffle"){withAnimation{gridViewModel.shuffle()}}
+            Button("Shuffle"){
+                withAnimation{gridViewModel.shuffle()}
+                gridViewModel.checkForBingo()
+            }
                 .padding(10)
                 .overlay{
                     RoundedRectangle(cornerRadius: 40)

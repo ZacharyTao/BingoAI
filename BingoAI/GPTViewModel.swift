@@ -24,32 +24,12 @@ class BingoViewModel: ObservableObject {
     func generateBingoDescriptions(from prompt: String) {
         isFetching = true
         let refinedPrompt = """
-            Generate 27 unique and creative descriptions or words of features or qualities that one would find in \(prompt). Each description should be concise and suitable for a bingo sheet square, and should be 1-3 words. Never include any list number title such as 1. or 2. For example, if user type "making new friends", generate a format similar to this:
-            
-            has brown eyes
-            has curly hair
-            can do 5 jumping jacks
-            can say "hello" in a language other than English
-            has a little brother or sister
-            has lived in two different places
-            read a book today
-            can stand on one foot for 30 seconds
-            has a pet
-            hugged a parent today
-            has tried something new this week
-            Free!
-            is excited to go to school this fall
-            has blue eyes
-            is wearing something red
-            can sing a song
-            visited another state
-            can rollerskate, ice skate, or ride a bike
-            has an older sister or brother
-            can make a funny animal sound
-            knows a super-silly joke
-            watched a movie this month
-            knows how to make a snack
-            has a cousin
+            Directly generate 27 unique and concise descriptions of features, qualities or names of items or examples within the category of typically found in \(prompt). Each description should be suitable for inclusion in a bingo sheet square and consist of 1-3 words only. Think about what would a user like to have on a bingo sheet. Do not format the output as a list with numbers or bullets. Never include any list number title such as 1. or 2. For example, if user type "making new friends", generate a format similar to this. Always generate 27 different descriptions:
+                        has brown eyes
+                        has curly hair
+                        can do 5 jumping jacks
+                        has a pet
+                       hugged a parent today
             """
 
         let chat = [ChatMessage(role: .user, content: refinedPrompt)]
@@ -76,6 +56,7 @@ class BingoViewModel: ObservableObject {
 
     private func processResponseIntoBingoDescriptionsFor5(_ response: String?) -> [String] {
         if let response = response {
+            print(response)
             let descriptions = response.components(separatedBy: "\n").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
             var adjustedDescriptions = descriptions
 

@@ -12,24 +12,27 @@ import SwiftUI
 struct GridView: View {
     @ObservedObject var viewModel: GridViewModel
     @State private var draggingItem: String?
-    @State var freeSlot = BingoSlot(description: "FREE!", isSelected: false)
-    
+
+    @State private var isInitialized = false
     
     var body: some View {
         VStack(spacing: 0){
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: viewModel.size), spacing: 0) {
+                
                 let totalIndex = Int(pow(Double(viewModel.size), 2.0))
-                ForEach(0..<totalIndex, id: \.self) { index in
+                let modifedGridItem = Array( viewModel.bingoGrid.prefix(totalIndex))
+                
+                ForEach(Array(modifedGridItem.enumerated()), id: \.element.id) { index, _ in
                     if totalIndex == 25, index == 12{
-                        
-                        BingoSlotView(slot: freeSlot)
+                        BingoFreeSlotView(slot: viewModel.bingoGrid[index])
+                            .environmentObject(viewModel)
                             .aspectRatio(viewModel.size == 5 ? 0.85 : 1, contentMode: .fit)
                             .onTapGesture {
-                                freeSlot.isSelected.toggle()
                                 viewModel.selectSlot(viewModel.bingoGrid[index])
                                 viewModel.checkForBingo()
                             }
                             .padding(3)
+
                     }else{
                         BingoSlotView(slot: viewModel.bingoGrid[index])
                             .aspectRatio(viewModel.size == 5 ? 0.85 : 1, contentMode: .fit)
@@ -54,6 +57,7 @@ struct GridView: View {
                                             let sourceItem = viewModel.bingoGrid.remove(at: sourceIndex)
                                             viewModel.bingoGrid.insert(sourceItem, at: destinationIndex)
                                         }
+                                        
                                     }
                                 }
                                 
@@ -62,10 +66,35 @@ struct GridView: View {
                         
                     }
                 }
+
                 
-            }            
+            }    .animation(.default, value: viewModel.bingoGrid)
+
 
         }
+    }
+}
+
+
+struct BingoFreeSlotView: View {
+    @EnvironmentObject var viewModel: GridViewModel
+    var slot: BingoSlot
+    var body: some View {
+        RoundedRectangle(cornerRadius: 5)
+            .fill(
+                LinearGradient(gradient: Gradient(colors: [Color.white, Color.blue.opacity(0.3)]), startPoint: .top, endPoint: .bottom)
+            )
+            .stroke(slot.isSelected ? Color.green : Color.gray, lineWidth: 2)
+        
+            .overlay{
+                
+                Text(!viewModel.isIntialized ? " " : "FREE!")
+                    .font(.caption)
+                    .fontWeight(.regular)
+                    .minimumScaleFactor(0.6)
+                    .foregroundColor(slot.isSelected ? .green : .primary)
+                    .padding(5)
+            }
     }
 }
 

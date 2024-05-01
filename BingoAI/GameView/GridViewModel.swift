@@ -12,6 +12,7 @@ class GridViewModel: ObservableObject {
     @Published var bingoGrid: [BingoSlot] = []
     @Published var isBingoed = false
     @Published var size = 5
+    @Published var isIntialized = false
     
 
     init(descriptions: [String]) {
@@ -23,7 +24,10 @@ class GridViewModel: ObservableObject {
     }
 
     func setupGrid(with descriptions: [String]) {
-        bingoGrid = descriptions.map{ BingoSlot(description: $0, isSelected: false)}
+        bingoGrid = descriptions.map{ BingoSlot(description: $0, isSelected: false)
+        }
+        isIntialized = true
+
     }
         
     func deselectAll(){
