@@ -7,30 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EFDC0FC22BE1DC54003B5F8E /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDC0FC12BE1DC54003B5F8E /* SheetView.swift */; };
+		EFDC0FC52BE2A3EE003B5F8E /* Vortex in Frameworks */ = {isa = PBXBuildFile; productRef = EFDC0FC42BE2A3EE003B5F8E /* Vortex */; };
 		EFE765902B419EEA00F41CC5 /* BingoAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE7658F2B419EEA00F41CC5 /* BingoAIApp.swift */; };
 		EFE765922B419EEA00F41CC5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE765912B419EEA00F41CC5 /* ContentView.swift */; };
 		EFE765942B419EEB00F41CC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE765932B419EEB00F41CC5 /* Assets.xcassets */; };
 		EFE765972B419EEB00F41CC5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE765962B419EEB00F41CC5 /* Preview Assets.xcassets */; };
 		EFE765A22B41A8DD00F41CC5 /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = EFE765A12B41A8DD00F41CC5 /* OpenAIKit */; };
 		EFE765A62B426E9D00F41CC5 /* BingoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE765A52B426E9D00F41CC5 /* BingoViewModel.swift */; };
-		EFE765A82B426FA900F41CC5 /* BingoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE765A72B426FA900F41CC5 /* BingoModel.swift */; };
-		EFE765AB2B4278BC00F41CC5 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE765AA2B4278BC00F41CC5 /* GameModel.swift */; };
-		EFE765AD2B4278CC00F41CC5 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE765AC2B4278CC00F41CC5 /* GameViewModel.swift */; };
+		EFE765AB2B4278BC00F41CC5 /* BingoSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE765AA2B4278BC00F41CC5 /* BingoSlot.swift */; };
+		EFE765AD2B4278CC00F41CC5 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE765AC2B4278CC00F41CC5 /* GridViewModel.swift */; };
 		EFE765AF2B4279F200F41CC5 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE765AE2B4279F200F41CC5 /* GridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EFDC0FC12BE1DC54003B5F8E /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		EFE7658C2B419EEA00F41CC5 /* BingoAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BingoAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE7658F2B419EEA00F41CC5 /* BingoAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoAIApp.swift; sourceTree = "<group>"; };
 		EFE765912B419EEA00F41CC5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EFE765932B419EEB00F41CC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFE765962B419EEB00F41CC5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EFE765A52B426E9D00F41CC5 /* BingoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoViewModel.swift; sourceTree = "<group>"; };
-		EFE765A72B426FA900F41CC5 /* BingoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoModel.swift; sourceTree = "<group>"; };
-		EFE765AA2B4278BC00F41CC5 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
-		EFE765AC2B4278CC00F41CC5 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		EFE765AA2B4278BC00F41CC5 /* BingoSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoSlot.swift; sourceTree = "<group>"; };
+		EFE765AC2B4278CC00F41CC5 /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
 		EFE765AE2B4279F200F41CC5 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		EFE765B32B4C9B6600F41CC5 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		EFE765B42B4C9F9800F41CC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFDC0FC52BE2A3EE003B5F8E /* Vortex in Frameworks */,
 				EFE765A22B41A8DD00F41CC5 /* OpenAIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,13 +68,14 @@
 		EFE7658E2B419EEA00F41CC5 /* BingoAI */ = {
 			isa = PBXGroup;
 			children = (
+				EFE765B42B4C9F9800F41CC5 /* Info.plist */,
 				EFE765A92B4278A500F41CC5 /* BingoGame */,
 				EFE7658F2B419EEA00F41CC5 /* BingoAIApp.swift */,
 				EFE765A52B426E9D00F41CC5 /* BingoViewModel.swift */,
-				EFE765A72B426FA900F41CC5 /* BingoModel.swift */,
 				EFE765912B419EEA00F41CC5 /* ContentView.swift */,
 				EFE765932B419EEB00F41CC5 /* Assets.xcassets */,
 				EFE765952B419EEB00F41CC5 /* Preview Content */,
+				EFDC0FC12BE1DC54003B5F8E /* SheetView.swift */,
 			);
 			path = BingoAI;
 			sourceTree = "<group>";
@@ -87,8 +91,8 @@
 		EFE765A92B4278A500F41CC5 /* BingoGame */ = {
 			isa = PBXGroup;
 			children = (
-				EFE765AA2B4278BC00F41CC5 /* GameModel.swift */,
-				EFE765AC2B4278CC00F41CC5 /* GameViewModel.swift */,
+				EFE765AA2B4278BC00F41CC5 /* BingoSlot.swift */,
+				EFE765AC2B4278CC00F41CC5 /* GridViewModel.swift */,
 				EFE765AE2B4279F200F41CC5 /* GridView.swift */,
 			);
 			path = BingoGame;
@@ -112,6 +116,7 @@
 			name = BingoAI;
 			packageProductDependencies = (
 				EFE765A12B41A8DD00F41CC5 /* OpenAIKit */,
+				EFDC0FC42BE2A3EE003B5F8E /* Vortex */,
 			);
 			productName = BingoAI;
 			productReference = EFE7658C2B419EEA00F41CC5 /* BingoAI.app */;
@@ -143,6 +148,7 @@
 			mainGroup = EFE765832B419EEA00F41CC5;
 			packageReferences = (
 				EFE765A02B41A8DD00F41CC5 /* XCRemoteSwiftPackageReference "OpenAIKit" */,
+				EFDC0FC32BE2A3EE003B5F8E /* XCRemoteSwiftPackageReference "Vortex" */,
 			);
 			productRefGroup = EFE7658D2B419EEA00F41CC5 /* Products */;
 			projectDirPath = "";
@@ -170,12 +176,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFE765AD2B4278CC00F41CC5 /* GameViewModel.swift in Sources */,
-				EFE765AB2B4278BC00F41CC5 /* GameModel.swift in Sources */,
+				EFE765AD2B4278CC00F41CC5 /* GridViewModel.swift in Sources */,
+				EFDC0FC22BE1DC54003B5F8E /* SheetView.swift in Sources */,
+				EFE765AB2B4278BC00F41CC5 /* BingoSlot.swift in Sources */,
 				EFE765922B419EEA00F41CC5 /* ContentView.swift in Sources */,
 				EFE765AF2B4279F200F41CC5 /* GridView.swift in Sources */,
 				EFE765902B419EEA00F41CC5 /* BingoAIApp.swift in Sources */,
-				EFE765A82B426FA900F41CC5 /* BingoModel.swift in Sources */,
 				EFE765A62B426E9D00F41CC5 /* BingoViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,17 +322,18 @@
 				DEVELOPMENT_TEAM = DP7CA5HH9V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BingoAI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.22;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.vanderbilt.zachtao.BingoAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -349,17 +356,18 @@
 				DEVELOPMENT_TEAM = DP7CA5HH9V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BingoAI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.22;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.vanderbilt.zachtao.BingoAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -394,6 +402,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EFDC0FC32BE2A3EE003B5F8E /* XCRemoteSwiftPackageReference "Vortex" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/Vortex";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
 		EFE765A02B41A8DD00F41CC5 /* XCRemoteSwiftPackageReference "OpenAIKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/OpenDive/OpenAIKit.git";
@@ -405,6 +421,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EFDC0FC42BE2A3EE003B5F8E /* Vortex */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFDC0FC32BE2A3EE003B5F8E /* XCRemoteSwiftPackageReference "Vortex" */;
+			productName = Vortex;
+		};
 		EFE765A12B41A8DD00F41CC5 /* OpenAIKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EFE765A02B41A8DD00F41CC5 /* XCRemoteSwiftPackageReference "OpenAIKit" */;

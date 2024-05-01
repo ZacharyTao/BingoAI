@@ -7,48 +7,64 @@
 
 import SwiftUI
 
+
+
 struct GridView: View {
-    @ObservedObject var viewModel: GameViewModel
-    let columns = [
-            GridItem(.flexible()),
-            GridItem(.flexible()),
-            GridItem(.flexible()),
-            GridItem(.flexible()),
-            GridItem(.flexible())
-        ]
-
+    @ObservedObject var viewModel: GridViewModel
+    @State private var draggingItem: String?
+    @State var freeSlot = BingoSlot(description: "FREE!", isSelected: false)
+    
+    
     var body: some View {
-        VStack {
-            Spacer()
-            LazyVGrid(columns: columns) {
-                        ForEach(0..<25, id: \.self) { index in
-                            let row = index / 5
-                            let column = index % 5
-                            BingoSlotView(slot: viewModel.bingoGrid[row][column])
-                                .onTapGesture {
-                                    viewModel.selectSlot(at: row, column: column)
+        VStack(spacing: 0){
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: viewModel.size), spacing: 0) {
+                let totalIndex = Int(pow(Double(viewModel.size), 2.0))
+                ForEach(0..<totalIndex, id: \.self) { index in
+                    if totalIndex == 25, index == 12{
+                        
+                        BingoSlotView(slot: freeSlot)
+                            .aspectRatio(viewModel.size == 5 ? 0.85 : 1, contentMode: .fit)
+                            .onTapGesture {
+                                freeSlot.isSelected.toggle()
+                                viewModel.selectSlot(viewModel.bingoGrid[index])
+                                viewModel.checkForBingo()
+                            }
+                            .padding(3)
+                    }else{
+                        BingoSlotView(slot: viewModel.bingoGrid[index])
+                            .aspectRatio(viewModel.size == 5 ? 0.85 : 1, contentMode: .fit)
+                            .onTapGesture {
+                                viewModel.selectSlot(viewModel.bingoGrid[index])
+                                viewModel.checkForBingo()
+                            }
+                            .draggable(viewModel.bingoGrid[index].description){
+                                Color.clear
+                                    .onAppear {
+                                        draggingItem = viewModel.bingoGrid[index].description
+                                    }
+                            }
+                            .dropDestination(for: String.self){_, location in
+                                draggingItem = nil
+                                return false
+                            } isTargeted: { status in
+                                if let draggingItem, status, draggingItem != viewModel.bingoGrid[index].description{
+                                    if let sourceIndex = viewModel.bingoGrid.firstIndex(where: {$0.description == draggingItem}),
+                                       let destinationIndex = viewModel.bingoGrid.firstIndex(where: {$0.description == viewModel.bingoGrid[index].description}){
+                                        withAnimation{
+                                            let sourceItem = viewModel.bingoGrid.remove(at: sourceIndex)
+                                            viewModel.bingoGrid.insert(sourceItem, at: destinationIndex)
+                                        }
+                                    }
                                 }
-                        }
+                                
+                            }
+                            .padding(3)
+                        
                     }
-            Spacer(minLength: 20)
-            if viewModel.isGameWon {
-                Text("Bingo!")
-                    .font(.title)
-                    .fontWeight(.heavy)
-                    .foregroundColor(.white)
-                    .padding(20)
-                    .background(Color.green)
-                    .cornerRadius(12)
-                    .shadow(radius: 10)
-            }else{
-                Text("      ")
-                    .font(.title)
-                    .fontWeight(.heavy)
-                    .padding(20)
+                }
+                
+            }            
 
-
-            }
-            Spacer()
         }
     }
 }
@@ -57,35 +73,26 @@ struct BingoSlotView: View {
     var slot: BingoSlot
     
     var body: some View {
-        Text(slot.description)
-            .font(.system(size: 16))
-            .fontWeight(slot.isSelected ? .medium : .regular)
-            .minimumScaleFactor(0.7)
-            .frame(width: 55, height: 80)
-            .foregroundColor(slot.isSelected ? .green : .primary)
-            .transition(.scale)
-            .padding(6)
-            .background(
-                // Add a subtle gradient or solid color with a card-like feel
+        RoundedRectangle(cornerRadius: 5)
+            .fill(
                 LinearGradient(gradient: Gradient(colors: [Color.white, Color.blue.opacity(0.3)]), startPoint: .top, endPoint: .bottom)
-                    .cornerRadius(10)
-                    .frame(width: 70, height: 90)
             )
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(slot.isSelected ? Color.green : Color.gray, lineWidth: 2)
-                    .frame(width: 70, height: 90)
-                
-                
-            )
-            .scaleEffect(slot.isSelected ? 1.06 : 1.0)
+            .stroke(slot.isSelected ? Color.green : Color.gray, lineWidth: 2)
+        
+            .overlay{
+                Text(slot.description)
+                    .font(.caption)
+                    .fontWeight(.regular)
+                    .minimumScaleFactor(0.6)
+                    .foregroundColor(slot.isSelected ? .green : .primary)
+                    .padding(5)
+            }
     }
 }
 
 
 struct BingoView_Previews: PreviewProvider {
     static var previews: some View {
-        //        let descriptions = (1...25).map { "Item \($0)" }
         let descriptions: [String] = [
             "has brown eyes",
             "has curly hair",
@@ -113,7 +120,7 @@ struct BingoView_Previews: PreviewProvider {
             "knows how to make a snack",
             "has a cousin"
         ]
-        let viewModel = GameViewModel(descriptions: descriptions)
+        let viewModel = GridViewModel(descriptions: descriptions)
         return GridView(viewModel: viewModel)
     }
 }

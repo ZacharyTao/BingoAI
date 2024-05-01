@@ -6,59 +6,168 @@
 //
 
 import SwiftUI
+import Vortex
+
+class UserSettings: ObservableObject{
+    @Published var gridType: GridType = .five
+    @Published var bgColor = Color.white
+    @Published var gridColor = Color.white
+    static var shared = UserSettings()
+}
 
 struct ContentView: View {
-    @StateObject private var viewModel = BingoViewModel()
+    @StateObject private var gptViewModel = BingoViewModel()
+    @StateObject private var gridViewModel = GridViewModel(descriptions: Array(repeating: "", count: 25))
+    @StateObject private var userSettings = UserSettings.shared
     @State private var prompt: String = ""
+    @State var showSettingSheet = false
+    
     
     var body: some View {
-        NavigationView{
-            GeometryReader { _ in
-                VStack {
-                    HStack{
-                        
-                        TextField("Type in the prompt", text: $prompt)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .padding()
-                        Button("Generate"){
-                            
-                            viewModel.generateBingoDescriptions(from: prompt)
-                            
-                        }
-                        .disabled(prompt.isEmpty)
-                        .buttonStyle(PrimaryButtonStyle())
-                        
-                    }
-                    .padding()
+        NavigationStack{
+            VortexViewReader { proxy in
+
+                ZStack(alignment: .top){
                     
-                    Spacer()
+                    VortexView(.confetti) {
+                        Text("Bingo")
+                            .foregroundStyle(.white)
+                            .font(.largeTitle)
+                            .tag("square")
+                        
+                        Circle()
+                            .fill(.white)
+                            .frame(width: 16)
+                            .tag("circle")
+                    }.ignoresSafeArea()
                     
-                    if viewModel.isFetching {
+                    GeometryReader{reader in
                         VStack {
-                            ProgressView()
-                                .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-                            Text("Generating...")
-                                .foregroundColor(.secondary)
+                            if gptViewModel.isFetching {
+                                bingoProgressView
+                            } else {
+                                VStack(spacing: 0){
+                                    promptTitleView
+                                    GridView(viewModel: gridViewModel)
+                                        .padding(5)
+                                    buttonView
+                                    Button{
+                                        proxy.burst()
+                                        proxy.move(to: CGPoint(x: reader.size.width / 2, y: 180))
+
+                                    }label:{
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .foregroundStyle(gridViewModel.isBingoed ? .green : .clear)
+                                            .frame(width: 200, height: 100)
+                                            .overlay{
+                                                Text("Bingo!")
+                                                    .font(.system(size: 40))
+                                                    .fontWeight(.heavy)
+                                                    .foregroundColor(gridViewModel.isBingoed ? .white : .clear)
+                                            }
+                                            .padding()
+                                    }
+                                    
+                                }
+                                Spacer()
+                            }
                         }
-                    } else {
-                        GridView(viewModel: GameViewModel(descriptions: viewModel.bingoDescriptions))
-                            .padding(5)
-                        Spacer()
+                        .onChange(of: userSettings.gridType){
+                            switch userSettings.gridType {
+                            case .four:
+                                gridViewModel.size = 4
+                            case .five:
+                                gridViewModel.size = 5
+                                
+                            }
+                        }
+                        .sheet(isPresented: $showSettingSheet){
+                            SheetView()
+                        }
+                        .onChange(of: gridViewModel.isBingoed){
+                            if gridViewModel.isBingoed{
+                                proxy.burst()
+                                proxy.move(to: CGPoint(x: reader.size.width / 2, y: 180))
+                            }
+                        }
                     }
-                    Spacer()
-                    
-                    
+                    .ignoresSafeArea(.keyboard, edges: .bottom)
+                    .onChange(of: gptViewModel.isFetching){
+                        gridViewModel.setupGrid(with: gptViewModel.bingoDescriptions)
+                    }
+                   
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        ToolbarItem(placement: .principal) {
+                            Text("Welcome to BingoAI!").font(.title2).fontWeight(.semibold)
+                            
+                        }
+                        ToolbarItem(placement: .topBarTrailing){
+                            Button{
+                                showSettingSheet = true
+                            }label: {
+                                Image(systemName: "ellipsis")
+                                
+                            }
+                        }
+                        
+                    }
                 }
-                .ignoresSafeArea(.keyboard, edges: .bottom)
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar { // <2>
-                ToolbarItem(placement: .principal) { // <3>
-                    Text("Welcome to BingoAI!").font(.title2).fontWeight(.semibold)
-                    
-                }
-            }
+            
         }
+    }
+    
+
+    @ViewBuilder
+    var buttonView: some View{
+        HStack(spacing: 20){
+            Button("Shuffle"){withAnimation{gridViewModel.shuffle()}}
+                .padding(10)
+                .overlay{
+                    RoundedRectangle(cornerRadius: 40)
+                        .stroke(Color.primary)
+                }
+            Button("Deselect all"){gridViewModel.deselectAll()}
+                .padding(10)
+                .overlay{
+                    RoundedRectangle(cornerRadius: 40)
+                        .stroke(Color.primary)
+                }
+        }.foregroundStyle(.primary)
+            .fontWeight(.medium)
+    }
+    
+    @ViewBuilder
+    var promptTitleView: some View{
+        HStack{
+            TextField("Type in the prompt", text: $prompt)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            Button("Generate"){
+                gptViewModel.generateBingoDescriptions(from: prompt)
+            }
+            .disabled(prompt.isEmpty)
+            .buttonStyle(PrimaryButtonStyle())
+        }
+        .padding()
+        
+    }
+    
+    @ViewBuilder
+    var bingoProgressView: some View{
+        Spacer()
+        HStack{
+            Spacer()
+            VStack{
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                Text("Generating...")
+                    .foregroundColor(.secondary)
+            }
+            Spacer()
+        }
+        Spacer()
     }
 }
 

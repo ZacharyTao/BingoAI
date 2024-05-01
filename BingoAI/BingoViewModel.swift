@@ -16,17 +16,15 @@ class BingoViewModel: ObservableObject {
     init() {
         let config = Configuration(
             organizationId: "INSERT-ORGANIZATION-ID",
-            apiKey: ProcessInfo.processInfo.environment["OpenAIAPI"] ?? Bundle.main.infoDictionary?["OpenAIAPI"] as? String ?? "DefaultApiKey"
+            apiKey: "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"
         )
         openAI = OpenAI(config)
-        
     }
     
     func generateBingoDescriptions(from prompt: String) {
         isFetching = true
-        
         let refinedPrompt = """
-            Generate 24 unique and creative descriptions or words of features or qualities that one would find in \(prompt). Each description should be concise and suitable for a bingo sheet square, and should be 1-3 words. Never include any list number title such as 1. or 2. For example, if user type "making new friends", generate a format similar to this:
+            Generate 27 unique and creative descriptions or words of features or qualities that one would find in \(prompt). Each description should be concise and suitable for a bingo sheet square, and should be 1-3 words. Never include any list number title such as 1. or 2. For example, if user type "making new friends", generate a format similar to this:
             
             has brown eyes
             has curly hair
@@ -60,10 +58,8 @@ class BingoViewModel: ObservableObject {
         Task {
             do {
                 let chatCompletion = try await openAI.generateChatCompletion(parameters: chatParameters)
-                
                 if let message = chatCompletion.choices.first?.message {
-                    // For simplicity, returns an array of strings.
-                    let descriptions = processResponseIntoBingoDescriptions(message.content)
+                    let descriptions = processResponseIntoBingoDescriptionsFor5(message.content)
                     DispatchQueue.main.async {
                         self.bingoDescriptions = descriptions
                         self.isFetching = false
@@ -78,15 +74,11 @@ class BingoViewModel: ObservableObject {
         }
     }
 
-    private func processResponseIntoBingoDescriptions(_ response: String?) -> [String] {
+    private func processResponseIntoBingoDescriptionsFor5(_ response: String?) -> [String] {
         if let response = response {
-//            let descriptions = response.components(separatedBy: "\n")
-//                return descriptions.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
             let descriptions = response.components(separatedBy: "\n").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
             var adjustedDescriptions = descriptions
-            adjustedDescriptions.insert("Free!", at: 12)
 
-            // Check if the array has less than 25 elements
             if adjustedDescriptions.count > 25 {
                 // If there are more than 25 elements, keep only the first 25
                 adjustedDescriptions = Array(adjustedDescriptions.prefix(25))
@@ -94,13 +86,36 @@ class BingoViewModel: ObservableObject {
                 // If there are fewer than 25 elements, append empty strings to make it 25
                 adjustedDescriptions.append(contentsOf: Array(repeating: "", count: 25 - adjustedDescriptions.count))
             }
-
-
             // Now adjustedDescriptions has exactly 25 elements
             return adjustedDescriptions
         } else {
             var numbers = Set<Int>()
             while numbers.count < 25 {
+                numbers.insert(Int.random(in: 0...100))
+            }
+            let randomList = Array(numbers)
+            return randomList.map { String($0) }
+        }
+    }
+    
+    
+    private func processResponseIntoBingoDescriptionsFor4(_ response: String?) -> [String] {
+        if let response = response {
+            let descriptions = response.components(separatedBy: "\n").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            var adjustedDescriptions = descriptions
+
+            if adjustedDescriptions.count > 16 {
+                // If there are more than 25 elements, keep only the first 25
+                adjustedDescriptions = Array(adjustedDescriptions.prefix(16))
+            } else if adjustedDescriptions.count < 16 {
+                // If there are fewer than 25 elements, append empty strings to make it 25
+                adjustedDescriptions.append(contentsOf: Array(repeating: "", count: 16 - adjustedDescriptions.count))
+            }
+            // Now adjustedDescriptions has exactly 25 elements
+            return adjustedDescriptions
+        } else {
+            var numbers = Set<Int>()
+            while numbers.count < 16 {
                 numbers.insert(Int.random(in: 0...100))
             }
             let randomList = Array(numbers)
