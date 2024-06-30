@@ -27,7 +27,6 @@ class GridViewModel: ObservableObject {
         bingoGrid = descriptions.map{ BingoSlot(description: $0, isSelected: false)
         }
         isIntialized = true
-
     }
         
     func deselectAll(){

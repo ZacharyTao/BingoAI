@@ -16,7 +16,7 @@ class BingoViewModel: ObservableObject {
     init() {
         let config = Configuration(
             organizationId: "INSERT-ORGANIZATION-ID",
-            apiKey: "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"
+            apiKey: ProcessInfo.processInfo.environment["OpenAIAPI"] ?? ""
         )
         openAI = OpenAI(config)
     }

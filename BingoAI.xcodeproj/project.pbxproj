@@ -70,10 +70,10 @@
 				EFE765A92B4278A500F41CC5 /* GameView */,
 				EFE7658F2B419EEA00F41CC5 /* BingoAIApp.swift */,
 				EFE765A52B426E9D00F41CC5 /* GPTViewModel.swift */,
+				EFDC0FC12BE1DC54003B5F8E /* SheetView.swift */,
 				EFE765912B419EEA00F41CC5 /* ContentView.swift */,
 				EFE765932B419EEB00F41CC5 /* Assets.xcassets */,
 				EFE765952B419EEB00F41CC5 /* Preview Content */,
-				EFDC0FC12BE1DC54003B5F8E /* SheetView.swift */,
 			);
 			path = BingoAI;
 			sourceTree = "<group>";

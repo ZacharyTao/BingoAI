@@ -52,7 +52,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "OpenAIAPI"
-            value = "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"
+            value = "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"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
