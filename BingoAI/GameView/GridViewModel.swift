@@ -97,49 +97,6 @@ class GridViewModel: ObservableObject {
         }
         return diag1Mark || diag2Mark
     }
-
-  
-//    private func checkHorizontal() -> Bool {
-//        for row in bingoGrid {
-//            if row.allSatisfy({ $0.isSelected }) {
-//                return true
-//            }
-//        }
-//        return false
-//    }
-//
-//    private func checkVertical() -> Bool {
-//        for col in 0..<5 {
-//                var allSelected = true
-//                for row in 0..<5 {
-//                    if !bingoGrid[row][col].isSelected {
-//                        allSelected = false
-//                        break
-//                    }
-//                }
-//                if allSelected {
-//                    return true
-//                }
-//            }
-//            return false
-//    }
-//
-//    private func checkDiagonal() -> Bool {
-//        // Top-left to bottom-right
-//           var diagonal1 = true
-//           // Top-right to bottom-left
-//           var diagonal2 = true
-//
-//           for i in 0..<5 {
-//               if !bingoGrid[i][i].isSelected {
-//                   diagonal1 = false
-//               }
-//               if !bingoGrid[i][4 - i].isSelected {
-//                   diagonal2 = false
-//               }
-//           }
-//           return diagonal1 || diagonal2
-//    }
     
     func updateDescriptions(with newDescriptions: [String]) {
             assert(newDescriptions.count == 25, "There must be exactly 25 descriptions.")
