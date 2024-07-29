@@ -7,6 +7,9 @@ NEW FEATURE ADDED:
 - 4 * 4 grid now supported
 - Celebration confettis animation supported by the Vortex framework 🎉
 
+<img src="https://github.com/user-attachments/assets/2833590f-1646-4d6e-9d3e-98f4e8ce8edb" width="200"/> 
+<img src="https://github.com/user-attachments/assets/8b160f35-9252-45ba-8ddc-cca3df34f9d6" width="200"/> 
+
 ## Features
 
 - **AI-Powered Bingo Sheets**: Generate custom 25/16-square Bingo sheets using AI.
@@ -16,7 +19,10 @@ NEW FEATURE ADDED:
 
 **BingoAI is now deployed on App Store!! Download the most updated version here: [App Store Link](https://apps.apple.com/us/app/bingoai/id6475277285)**
 
-<img src="https://github.com/ZacharyTao/BingoAI/assets/111452513/b1e18e9e-013d-4138-bf33-238bede4512d" width="200"/> <img src="https://github.com/ZacharyTao/BingoAI/assets/111452513/72e364df-8ace-4d5f-80e5-2c2ede241782" width="200"/> <img src="https://github.com/ZacharyTao/BingoAI/assets/111452513/9ff5e675-0688-4e27-bc7d-f77fad845a8e" width="200"/> <img src="https://github.com/ZacharyTao/BingoAI/assets/111452513/5925cc45-2208-4b59-9193-e6df57077d69" width="200"/>
+<img src="https://github.com/ZacharyTao/BingoAI/assets/111452513/b1e18e9e-013d-4138-bf33-238bede4512d" width="200"/> 
+<img src="https://github.com/ZacharyTao/BingoAI/assets/111452513/72e364df-8ace-4d5f-80e5-2c2ede241782" width="200"/> 
+<img src="https://github.com/ZacharyTao/BingoAI/assets/111452513/9ff5e675-0688-4e27-bc7d-f77fad845a8e" width="200"/> 
+<img src="https://github.com/ZacharyTao/BingoAI/assets/111452513/5925cc45-2208-4b59-9193-e6df57077d69" width="200"/>
 
 ## Installation
 
