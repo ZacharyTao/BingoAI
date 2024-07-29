@@ -9,7 +9,7 @@ NEW FEATURE ADDED:
 
 ## Features
 
-- **AI-Powered Bingo Sheets**: Generate custom 25-square Bingo sheets using AI.
+- **AI-Powered Bingo Sheets**: Generate custom 25/16-square Bingo sheets using AI.
 - **Interactive Gameplay**: Engage with an intuitive and user-friendly Bingo interface.
 - **Personalized Experience**: Create Bingo sheets based on user-defined prompts.
 - **Cross-Device Compatibility**: Enjoy a seamless experience across all Apple devices with responsive design in SwiftUI.
