@@ -4,7 +4,10 @@ BingoAI is an iOS application that combines the classic game of Bingo with advan
 
 ## Features
 
-
+NEW FEATURE ADDED:
+- Shuffle and customize your AI Bingo sheet
+- 4 * 4 grid now supported
+- Celebration confettis animation supported by the Vortex framework 🎉
 
 - **AI-Powered Bingo Sheets**: Generate custom 25-square Bingo sheets using AI.
 - **Interactive Gameplay**: Engage with an intuitive and user-friendly Bingo interface.
