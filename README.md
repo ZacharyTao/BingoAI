@@ -32,18 +32,18 @@ Open the project in Xcode and run it on your desired device or simulator.
 
 To start using BingoAI:
 
-1. In BingoViewModel file, swich the apiKey to your own apiKey
+1. Provide your own OpenAI API key in environment
 2. Launch the app on your iOS device.
 3. Enter a prompt for the AI to generate a Bingo sheet.
 4. Interact with the Bingo sheet during gameplay.
 
 ## Technologies Used
 
-- **OpenAI API**: Leverage GPT-3 for generating dynamic content.
+- **OpenAI API**: Leverage GPT-3 turbo for generating dynamic content.
 
 ## Acknowledgements
 
-- Thanks to OpenAI for providing the GPT-3 API.
+- Thanks to OpenAIKit for providing the ChatGPT API.
 
 ## Contact
 
