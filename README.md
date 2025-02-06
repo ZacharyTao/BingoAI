@@ -2,8 +2,6 @@
 
 BingoAI is an iOS application that combines the classic game of Bingo with advanced AI technology. Utilizing OpenAI's GPT-4, BingoAI generates personalized Bingo sheets based on user-inputted prompts, offering a unique and engaging gameplay experience. 
 
-**BingoAI is now deployed on App Store!! Download the most updated version here: [App Store Link](https://apps.apple.com/us/app/bingoai/id6475277285)**
-
 ## Features
 
 - **AI-Powered Bingo Sheets**: Generate custom 25/16-square Bingo sheets using AI.
